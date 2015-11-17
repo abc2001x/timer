@@ -1,0 +1,9 @@
+{
+  "name": "rookie",
+  "require": {
+    "react/react": "^0.4.2"
+  },
+  "autoload": {
+	"psr-4": {"Model\\": "vendor/model/"}
+  }
+}
