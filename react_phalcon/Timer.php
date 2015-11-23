@@ -15,13 +15,14 @@ class Timer
         $log = new \Phalcon\Logger\Adapter\File(__DIR__.'/'.date('Y-m-d').".log");
         $this->log = $log;
 
-        $this->tasks = new TaskQueue();
+        // $this->tasks = new TaskQueue();
+        $this->tasks = new TaskHeap();
         $this->setExecutor();
 
     }
 
     public function getQue(){
-        return $this->tasks->q;
+        return $this->tasks->getQue();
     }
 
     //新增加的任务,是否设置为新的timer执行
@@ -107,12 +108,12 @@ class Timer
     public static function requestTimer($fullClassName,$methodName,$second,$params=[]){
         $data = ['class'=>$fullClassName,'method'=>$methodName,'exec_time'=>time()+$second,'params'=>$params];
         $return = self::sendDataByCurl(self::TIMER_API,$data);
-        if ('fail'==$return) {
-            return false;
+        if ('success'==$return) {
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
 

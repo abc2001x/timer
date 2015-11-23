@@ -5,7 +5,7 @@ namespace ReactQue;
  */
 class TaskQueue extends \stdClass {
 
-    private $config=['max_length'=>10];
+    private $config=['max_length'=>30];
 
     public $q;
     public $log;
@@ -136,7 +136,7 @@ class TaskQueue extends \stdClass {
             return ; 
         }
         //遍历所有元素后,没找出位置时 //只有当前que中长度未超长时添加
-        if (!$pos && $length < $this->config['max_length']) {
+        if ($pos==null && $length < $this->config['max_length']) {
             $this->insertAt($length,$task);
         }
         

@@ -67,9 +67,9 @@ class React{
                 }
             });
             $db = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
-                "host"     => "58.83.223.235",
+                "host"     => "127.0.0.1",
                 "username" => "root",
-                "password" => "root",
+                "password" => "123456",
                 "dbname"   => "rookie",
                 "charset"  => "utf8",
                 "persistent"=>true,

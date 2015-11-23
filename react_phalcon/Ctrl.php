@@ -82,6 +82,6 @@ class Ctrl extends BaseCtrl{
         //     echo "timer called".PHP_EOL;
         // });
 
-        return 'ssss';
+        return 'success';
     }
 }
